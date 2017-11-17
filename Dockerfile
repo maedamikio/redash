@@ -2,20 +2,19 @@ FROM ubuntu:latest
 
 RUN apt-get update && apt-get install -y \
     curl \
-    postgresql-9.5 \
-    postgresql-server-dev-9.5 \
+    postgresql \
+    redis-server \
     sudo \
     wget \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/*
 
-RUN service postgresql start && curl -sL https://raw.githubusercontent.com/getredash/redash/master/setup/ubuntu/bootstrap.sh | bash
+RUN service postgresql start && service redis-server start && curl -sL https://raw.githubusercontent.com/getredash/redash/master/setup/ubuntu/bootstrap.sh | bash
 
 EXPOSE 80
 
-CMD rm  /var/run/redis_6379.pid && \
-    service redis_6379 start && \
+CMD service nginx start && \
     service postgresql start && \
-    service redash_supervisord start && \
-    service nginx start && \
+    service redis-server start && \
+    service supervisor start && \
     tail -f /dev/null
