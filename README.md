@@ -8,7 +8,7 @@ You can run container from Docker Hub or Build Image.
 
 ## from Docker Hub
 
-This version is 2.0.1+b3080
+This version is 3.0.0+b3134
 
 ```
 $ docker run -d -p 8125:80 --name redash maedamikio/redash
