@@ -31,4 +31,4 @@ http://localhost:8125/
 
 # Authors
 
-* **MAEDA Mikio** - [Twitter](https://twitter.com/maeda_mikio)
+MAEDA Mikio - [Twitter](https://twitter.com/maeda_mikio)
